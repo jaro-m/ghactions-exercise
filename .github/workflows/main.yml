@@ -12,3 +12,20 @@ on:
     - cron: '15 6 * * 0'
   repository_dispatch:
   
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: First Step
+        run: |
+          echo "🎉 The job was triggered by event: ${{ github.event_name }}"
+          echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ."
+          
+      - uses: actions/checkout@v3.3.0
+          
+      - name: Second Step
+        run: |
+          echo "The repository ${{ github.repository }} contains the following files:"
+          tree
